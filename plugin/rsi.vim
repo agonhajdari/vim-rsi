@@ -8,9 +8,11 @@ if exists("g:loaded_rsi") || v:version < 700 || &cp
 endif
 let g:loaded_rsi = 1
 
-set ttimeout
-if &ttimeoutlen == -1
-  set ttimeoutlen=50
+if !has("nvim")
+  set ttimeout
+  if &ttimeoutlen == -1
+    set ttimeoutlen=50
+  endif
 endif
 
 inoremap        <C-A> <C-O>^
